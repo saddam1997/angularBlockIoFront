@@ -1,0 +1,24 @@
+<div style="padding-left: 25px; padding-right: 25px;">
+  <div class="row" style="margin-bottom: 25px;">
+    <div class="col-md-6 col-md-offset-3 text-center standalone" >
+      <form class="new_user">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+          <input autofocus="autofocus" class="form-control"  ng-model="email"   placeholder="Your e-mail address..." type="email" value="" />
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+          <input autocomplete="off" class="form-control"  ng-model="password"   placeholder="Your password..." type="password" />
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="fa fa-asterisk fa-fw"></i></span>
+          <input autocomplete="off" class="form-control"  ng-model="confirmPassword"  placeholder="Re-enter password..." type="password" />
+        </div>
+        <div class="pwstrength_viewport_progress text-center poptip" style="margin: 15px" data-toggle=tooltip title="The strength of your password. Green is best."></div>
+        <div style="margin: 25px;">
+        </div>
+        <div><input class="button btn-success " name="commit" ng-click="signup()"  value="Sign Up" /></div>
+      </form>
+    </div>
+  </div>
+</div>

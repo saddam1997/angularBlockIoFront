@@ -1,0 +1,20 @@
+<div style="padding-left: 25px; padding-right: 25px;">
+  <div class="row standalone">
+    <div class="col-md-6 col-md-offset-3">
+      <form accept-charset="UTF-8"   method="post">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+          <input autofocus="autofocus" class="form-control" ng-model="email" name="email" placeholder="Your e-mail address..." required="required" type="email" value="" />
+        </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+          <input autocomplete="off" class="form-control" ng-model="password"  name="password" placeholder="Your password..." required="required" type="password" />
+        </div>
+        <div class="text-center"><input class="button btn-success" ng-click="signin()" name="commit" style="margin-top: 25px;" type="submit" value="Login" /></div>
+      </form>
+      <div class="row text-center" style="margin: auto; margin-top: 35px;">
+        <p style="font-size: 11px;"><span>(<a href="/users/password/new">Forgot your password?</a>)</span></p>
+      </div>
+    </div>
+  </div>
+</div>

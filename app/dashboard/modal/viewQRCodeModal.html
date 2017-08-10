@@ -1,0 +1,31 @@
+<!-- <div class="modal-header">
+           <h3 class="modal-title" id="modal-title">Add Product Category</h3>
+</div>
+<div class="modal-body" id="modal-body">
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div> -->
+
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Deposit Bitcoin</h4>
+      </div>
+      <div class="modal-body text-center">
+        {{currentAddress.userAddress}}
+        <div style="margin-bottom: 10px;">
+          <kbd class="deposit-address break-word hidden-md hidden-lg selectable-plain"></kbd>
+          <h4 class="deposit-address break-word hidden-xs hidden-sm"></h4>
+        </div>
+        <qrcode data={{currentAddress.userAddress}} size="200" ></qrcode>
+        <p>You can send Bitcoin to the above address.</p>
+        <p class="text-muted"><i class="text-info fa fa-info-circle poptip" data-placement=right data-toggle=tooltip title="This is a MultiSig address. If the sending service/wallet says this address is incorrect, that service/wallet does not support MultiSig addresses, and is most likely outdated and insecure."></i>            Address is invalid?</p>
+      </div>
+      <div class="modal-footer">
+        <p class="text-muted text-left">Confused about something? <a href="/contacts" target="_blank" rel="noreferrer">Contact us</a>, we're happy to help.</p>
+        <button class="btn btn-default btn-md" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-info btn-md reloadbutton">Done</button>
+      </div>

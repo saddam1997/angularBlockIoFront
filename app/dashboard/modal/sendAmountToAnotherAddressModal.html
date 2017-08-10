@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title">Send Bitcoin</h4>
+</div>
+<form  method="post"  class="modal-form" autocomplete="off">
+  <div class="modal-body text-center">
+    <h1 class="break-word" style="margin-bottom: 25px;"><span id="withdraw-bal-available">0.00000</span> &#3647;<br><small>Available Balance</small></h1>
+
+    <div class="douchebag_safari" style="left: -9999px; position: fixed; width: 1px;">
+      <input type="password" />
+      <input type="text" />
+      <input type="text" />
+    </div>
+
+
+    <input type="number" placeholder="Amount of Bitcoin to send..." ng-model="amount" required=required class="form-control" autocomplete="off" />
+    <input type="text"  class="form-control" placeholder="Destination Bitcoin address" ng-model="recieverAddress" required=required autocomplete="off" />
+    <input type="password" class="form-control" placeholder="Secret PIN" required=required autocomplete="off" />
+
+  </div>
+  <div class="modal-footer text-left">
+    <p><span class="text-bold text-muted">Minimum Network Fee (per Kb)</span>: <span id="network_fee_display" class="text-muted">0.00342</span> <span class="text-muted">&#3647;;</span><br> Actual network fees depend on the size of your transaction.</p>
+
+
+
+    <button type="button" class="btn btn-md btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-md btn-success" ng-click="sendAmountToAdd()" ><i class="fa fa-spinner fa-md hidden" id="withdrawSpinner"></i> <span id="withdrawSpinlabel">Send &#3647;</span></button>
+  </div>
+</form>
