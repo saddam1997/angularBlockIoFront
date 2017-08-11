@@ -1,10 +1,12 @@
 // Instantiate the app, the 'myApp' parameter must
 // match what is in ng-app templateUrl
-var myApp = angular.module('blocIoAppFront', ['ui.router','ngStorage',
+var myApp = angular.module('blocIoAppFront', ['ui.router',
+'ngStorage',
 'ui.bootstrap','monospaced.qrcode',
 'blocIoAppFront.createNewAddressService',
 'blocIoAppFront.signUpService',
 'blocIoAppFront.sendAmountToAnotherAddressService',
+'blocIoAppFront.authService',
 'blocIoAppFront.signInService']);
 
 myApp.config(function($stateProvider) {
@@ -32,8 +34,13 @@ myApp.config(function($stateProvider) {
   $stateProvider.state(dashboardState);
 });
 
-myApp.controller('AppCtrl', function ($scope,$localStorage) {
+myApp.controller('AppCtrl', function ($scope,AuthService) {
 
+    $scope.auth = AuthService;
+    $scope.logout = function () {
+      alert("asdfasdf")
+      AuthService.logout();
+    };
     // $scope.userId=$localStorage.test.id;
     // alert("AppCtrl  "+$scope.userId);
 });

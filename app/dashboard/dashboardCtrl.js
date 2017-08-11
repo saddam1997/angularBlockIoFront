@@ -5,7 +5,7 @@ $scope.user=$localStorage.test;
 
  $scope.sendAmountToAnotherAddressOpenModal=function(){
    //alert("sendAmountToAnotherAddressOpenModal");
-   
+
      var modalInstance = $uibModal.open({
        templateUrl : "app/dashboard/modal/sendAmountToAnotherAddressModal.html",
        scope : $scope,
@@ -36,7 +36,7 @@ $scope.user=$localStorage.test;
 
    }, function() {
 
-      alet("No...result....");
+      alert("No...result....");
    });
  }
     $scope.viewQRCodeModal=function(currentAddressDetails){

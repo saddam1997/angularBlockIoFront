@@ -62,17 +62,18 @@
           <a href="/docs">For Developers</a>
         </li>
         <li class="nav-login">
-          <a ui-sref="signin" ui-sref-active="active" ng-show="userId == undefined">Login</a>
+          <a ui-sref="signin" ui-sref-active="active" ng-show="!auth.isAuthenticated()">Login</a>
         </li>
-        <li class="nav-sign-up" ng-show="userId == undefined">
+        <li class="nav-sign-up" ng-show="!auth.isAuthenticated()">
           <a ui-sref="signup" ui-sref-active="active">Sign Up</a>
         </li>
-        <!-- <li class="nav-login" ng-show="userId != undefined" >
-                  <a href="/session/destroy" class="logoutlink">Logout</a>
+
+        <li class="nav-login" ng-show="auth.isAuthenticated()" >
+                  <a  class="" style="cursor: pointer;text-decoration: blink;" ng-click="logout()">Logout</a>
         </li>
-        <li class="nav-sign-up" ng-show="userId != undefined" >
+        <li class="nav-sign-up" ng-show="auth.isAuthenticated()" >
                 <a href="/user/dashboard/">Wallet</a>
-        </li> -->
+        </li>
         </ul>
     </nav>
   </header>
@@ -148,6 +149,9 @@
 
     <script src="/app/dashboard/modal/sendAmountToAnotherAddressModalCtrl.js"></script>
     <script src="/app/services/sendAmountToAnotherAddressService.js"></script>
+
+    <script src="/app/services/authService.js"></script>
+
     <!-- <script src="/app/affiliate.js"></script> -->
     <!-- <script src="/app/external/signup.js"></script> -->
     <!-- <script src="/app/leaddyno.js"></script> -->
