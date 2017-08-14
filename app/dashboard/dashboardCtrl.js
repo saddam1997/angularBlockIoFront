@@ -1,10 +1,13 @@
-myApp.controller('DashBoardCtrl', function ($rootScope,$scope,$state,$localStorage,$uibModal,$log) {
+myApp.controller('DashBoardCtrl', function ($rootScope,$scope,$state,$localStorage,$uibModal,$log,ngDialog) {
 
-$scope.user=$localStorage.test;
- //alert(angular.toJson($localStorage.test));
+$scope.user=$localStorage.credentials.user;
+//alert(angular.toJson($localStorage.credentials)+" signin ");
 
- $scope.sendAmountToAnotherAddressOpenModal=function(){
-   //alert("sendAmountToAnotherAddressOpenModal");
+// ngDialog.open({
+//     template: '<p>my asdfasdfasdfasdf</p>',
+//     plain: true
+// });
+$scope.sendAmountToAnotherAddressOpenModal=function(){
 
      var modalInstance = $uibModal.open({
        templateUrl : "app/dashboard/modal/sendAmountToAnotherAddressModal.html",
@@ -12,18 +15,13 @@ $scope.user=$localStorage.test;
        controller : "SendAmountToAnotherAddressModalCtrl"
      });
      modalInstance.result.then(function(data) {
-       alert("result...."+angular.toJson(data));
-       //$localStorage.test=data.data;
-
+       //alert("result...."+angular.toJson(data));
      },function() {
-
-        alert("No...result....");
+        //alert("No...result....");
      });
- }
+}
 
-
- $scope.createNewAddressOpenModal=function(){
-
+$scope.createNewAddressOpenModal=function(){
    //alert(angular.toJson("createNewAddressOpenModal"))
    var modalInstance = $uibModal.open({
      templateUrl : "app/dashboard/modal/createNewAddressModal.html",
@@ -31,16 +29,16 @@ $scope.user=$localStorage.test;
      controller : "CreateNewAddressModalCtrl"
    });
    modalInstance.result.then(function(data) {
-     alert("result...."+angular.toJson(data));
-    $localStorage.test=data.data;
+     $localStorage.credentials.user=data.data;
+     //alert("Create new Address...result...."+angular.toJson(data.data));
+     $scope.user=$localStorage.credentials.user;
 
    }, function() {
 
-      alert("No...result....");
+      //alert("No...result....");
    });
- }
-    $scope.viewQRCodeModal=function(currentAddressDetails){
-
+}
+ $scope.viewQRCodeModal=function(currentAddressDetails){
       //alert(angular.toJson(currentAddressDetails))
   		var modalInstance = $uibModal.open({
   			templateUrl : "app/dashboard/modal/viewQRCodeModal.html",
@@ -56,12 +54,10 @@ $scope.user=$localStorage.test;
   		});
   		modalInstance.result.then(function(data) {
 
-
   		}, function() {
 
   			$log.info("Model Dismiss modalInstance");
   		}
   		);
   	}
-
 });

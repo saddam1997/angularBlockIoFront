@@ -5,12 +5,11 @@ angular.module('blocIoAppFront.signUpService', [])
 
       //alert("posting data "+angular.toJson(userDetails));
 
-      return $http.post('http://localhost:1337/user/create', userDetails, {
+      return $http.post('http://localhost:1337/user/createusingtoken', userDetails, {
         headers: {
           "Content-Type": "application/json"
         }
       }).then(function(response) {
-
         return response;
       });
     };

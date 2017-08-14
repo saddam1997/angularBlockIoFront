@@ -1,9 +1,18 @@
-myApp.controller('SignInCtrl', function ($rootScope,AuthService,$scope,SignInService,$state,$localStorage){
+myApp.controller('SignInCtrl', function ($rootScope,AuthService,$scope,
+SignInService,$state,$http,$localStorage,ngDialog,$timeout){
 
-alert(" signin "+AuthService.isAuthenticated());
-if(AuthService.isAuthenticated()){
-  $state.go('dashboard');
-}
+
+  var dialog = ngDialog.open({
+      template: '<p>Login Succefully. </p>',
+      plain: true
+  });
+ $timeout( function(){
+   dialog.close();
+    }, 3000 );
+
+  if(AuthService.isAuthenticated()){
+    $state.go('dashboard');
+  }
   $scope.signin = function() {
       alert(" signiasdfn ");
       var userDetails ={
@@ -13,7 +22,19 @@ if(AuthService.isAuthenticated()){
       SignInService.sign(userDetails)
       .then(
         function successCallback(response) {
+
+          var dialog = ngDialog.open({
+ 					    template: '<p>Login Succefully. </p>',
+ 					    plain: true
+ 					});
+ 				 $timeout( function(){
+ 					 dialog.close();
+ 			      }, 3000 );
           $localStorage.credentials = response.data;
+
+          //alert(angular.toJson($localStorage.credentials));
+          //alert($localStorage.credentials.token);
+          //$http.defaults.headers.common.Authorization = 'Bearer '+response.data.token;
           $state.go('dashboard');
         },
         function errorCallback() {

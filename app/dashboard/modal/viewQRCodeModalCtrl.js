@@ -1,6 +1,9 @@
-myApp.controller('ViewQRCodeModalCtrl', function ($scope,selectedRow) {
-
-//  alert("model :: "+selectedRow.user);
+myApp.controller('ViewQRCodeModalCtrl', function ($scope,selectedRow,$uibModalInstance) {
+  
 $scope.currentAddress= selectedRow.currentAddressDetails;
-alert("model :: "+$scope.currentAddress);
+
+$scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+};
+
 });

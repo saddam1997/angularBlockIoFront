@@ -1,5 +1,5 @@
 angular.module('blocIoAppFront.sendAmountToAnotherAddressService', [])
-  .factory('SendAmountToAnotherAddressService', function($http) {
+  .factory('SendAmountToAnotherAddressService', function($http,$localStorage) {
     function SendAmountToAnotherAddressService() {}
     SendAmountToAnotherAddressService.sendAmount = function(sendAmountAddressDetails) {
 
@@ -7,7 +7,8 @@ angular.module('blocIoAppFront.sendAmountToAnotherAddressService', [])
 
       return $http.post('http://localhost:1337/user/sendAmountToAddressApi', sendAmountAddressDetails, {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization":"Bearer "+$localStorage.credentials.token
         }
       }).then(function(response) {
 

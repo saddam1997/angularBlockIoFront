@@ -1,5 +1,5 @@
 angular.module('blocIoAppFront.createNewAddressService', [])
-  .factory('CreateNewAddressService', function($http) {
+  .factory('CreateNewAddressService', function($http,$localStorage) {
     function CreateNewAddressService() {}
     CreateNewAddressService.createNewAddress = function(userAddressDetails) {
 
