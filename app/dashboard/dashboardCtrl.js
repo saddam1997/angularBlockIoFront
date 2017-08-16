@@ -1,12 +1,10 @@
-myApp.controller('DashBoardCtrl', function ($rootScope,$scope,$state,$localStorage,$uibModal,$log,ngDialog) {
+myApp.controller('DashBoardCtrl', function ($rootScope,$scope,$state,$localStorage,$uibModal,
+  $log,toastr) {
 
 $scope.user=$localStorage.credentials.user;
 //alert(angular.toJson($localStorage.credentials)+" signin ");
 
-// ngDialog.open({
-//     template: '<p>my asdfasdfasdfasdf</p>',
-//     plain: true
-// });
+
 $scope.sendAmountToAnotherAddressOpenModal=function(){
 
      var modalInstance = $uibModal.open({

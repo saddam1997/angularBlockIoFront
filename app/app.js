@@ -2,7 +2,8 @@
 // match what is in ng-app templateUrl
 var myApp = angular.module('blocIoAppFront', ['ui.router',
 'ngStorage',
-'ngDialog',
+'ngAnimate',
+'toastr',
 'ui.bootstrap','monospaced.qrcode',
 'blocIoAppFront.createNewAddressService',
 'blocIoAppFront.signUpService',
@@ -49,12 +50,13 @@ myApp.run(function ($rootScope, $state, AuthService) {
     }
   });
 });
-myApp.controller('AppCtrl', function ($scope,AuthService) {
+myApp.controller('AppCtrl', function ($scope,AuthService,toastr) {
 
     $scope.auth = AuthService;
     $scope.logout = function () {
-      alert("asdfasdf")
+
       AuthService.logout();
+      toastr.success('Logout Succefully!','Bye!');
     };
     // $scope.userId=$localStorage.test.id;
     // alert("AppCtrl  "+$scope.userId);
